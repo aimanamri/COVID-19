@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 import streamlit as st
 
-st.title('COVID-19 Data Analysis')
+st.title('Japan COVID-19 Data Analysis')
 @st.cache
 def get_data():
     names = list()
@@ -35,6 +35,7 @@ def get_data():
         severe = pref['severe']
         hosp = pref['hospitalize']
 
+        # Prepare list data to append in dictonary to form DataFrame
         names.append(nama)
         lat_list.append(lat)
         long_list.append(lon)
