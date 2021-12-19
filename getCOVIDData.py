@@ -61,7 +61,7 @@ def get_data():
 
     #Export to CSV file
     df2.to_csv(r'B:\COVID-19-Analysis\cases_msia_2021.csv', index = False)
-    print('Data saved to CSV file (Japan)')
+    print('Data saved to CSV file (Malaysia)')
     time.sleep(5)
 
 get_data()
