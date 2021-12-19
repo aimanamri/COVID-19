@@ -1,4 +1,5 @@
 import pandas as pd
+import time
 # Import requests package
 import requests
 
@@ -16,7 +17,7 @@ def get_data():
     
     url = 'https://covid19-japan-web-api.now.sh/api//v1/prefectures'
     api_data = requests.get(url).json()
-    print('Total prefectures: ',len(api_data))
+    # print('Total prefectures: ',len(api_data))
 
     for pref in api_data[0:]:
         id = str(pref['id'])
@@ -48,6 +49,7 @@ def get_data():
 
     df = pd.DataFrame(data=data)
     df.to_csv(r'B:\COVID-19-Analysis\covid19_japan_data.csv',index=False,header=True)
+    print('Data saved to CSV file (Japan)')
 
     # Get Malaysia COVID data from API
     url2="https://raw.githubusercontent.com/MoH-Malaysia/covid19-public/main/epidemic/cases_malaysia.csv"
@@ -59,5 +61,7 @@ def get_data():
 
     #Export to CSV file
     df2.to_csv(r'B:\COVID-19-Analysis\cases_msia_2021.csv', index = False)
+    print('Data saved to CSV file (Japan)')
+    time.sleep(5)
 
 get_data()
